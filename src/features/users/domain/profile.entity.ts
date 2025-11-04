@@ -1,4 +1,7 @@
+export type UserRole = "patient" | "admin" | "medecin";
+
 export interface Profile {
+	id: string;
 	firstName: string;
 	lastName: string;
 	phone: string;
@@ -7,6 +10,7 @@ export interface Profile {
 	state: string;
 	zip: string;
 	country: string;
+	role: UserRole;
 }
 
 export interface ProfileRepository {
@@ -14,4 +18,5 @@ export interface ProfileRepository {
 	findById(id: string): Profile | null;
 	update(profile: Profile): Profile;
 	delete(id: string): void;
+	findByRole(role: UserRole): Profile[];    // c'est pour le filtrage des roles de utilisateurs
 }
