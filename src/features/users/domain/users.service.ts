@@ -18,4 +18,9 @@ export class UserService {
 		await this.repository.delete(id);
 	}
 
+
+	getAllProfiles() {
+  return this.repository.findAll();
+}
+
 }

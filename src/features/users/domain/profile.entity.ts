@@ -18,5 +18,6 @@ export interface ProfileRepository {
 	findById(id: string): Profile | null;
 	update(profile: Profile): Profile;
 	delete(id: string): void;
+	findAll(): Profile[];
 	findByRole(role: UserRole): Profile[];    // c'est pour le filtrage des roles de utilisateurs
 }

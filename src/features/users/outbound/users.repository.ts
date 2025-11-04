@@ -10,10 +10,16 @@ export class SimpleUserRepository implements UserRepository {
 
 	findByEmail(email: string): User | null {
 		const user = this.bd.find((user) => user.email === email);
-		if (user == null) {
-			return null;
-		}
-		return user;
+		return user || null;
+	}
+
+	findById(id: string): User | null {
+		const user = this.bd.find((user) => user.id === id);
+		return user || null;
+	}
+
+	findAll(): User[] {
+		return this.bd;
 	}
 
 	delete(id: string): void {
