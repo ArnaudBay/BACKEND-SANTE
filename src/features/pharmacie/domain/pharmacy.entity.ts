@@ -1,10 +1,11 @@
 export interface Medicine {
-    
+
 	id: string;
 	name: string;             
 	category: string;         
 	price: number;           
 	stock: number;            
+
 	expirationDate: string;   
 	description?: string;
 }
