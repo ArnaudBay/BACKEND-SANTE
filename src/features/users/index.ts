@@ -1,11 +1,11 @@
+import { emailSender } from "../messaging";
 import { UserService } from "./domain/users.service";
+import { createUserController } from "./inbound/users.controler";
 import { SimpleUserRepository } from "./outbound/users.repository";
-import { createUserController } from "./inbound/users.rest";
 
-const userRepository = new SimpleUserRepository();
-const userService = new UserService(userRepository);
-const usersRouter = createUserController(userService);
+const repository = new SimpleUserRepository();
+const service = new UserService(repository, emailSender);
+const router = createUserController(service);
 
-
-
-export default usersRouter;
+export default router;
+export { UserService, SimpleUserRepository };

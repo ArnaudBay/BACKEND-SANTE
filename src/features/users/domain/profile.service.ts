@@ -18,4 +18,12 @@ export class ProfileService {
 	async deleteProfile(id: string): Promise<void> {
 		await this.repository.delete(id);
 	}
+
+	async getAllProfiles(): Promise<Profile[]> {
+		return await this.repository.findAll();
+	}
+
+	async getProfilesByRole(role: Profile["role"]): Promise<Profile[]> {
+		return await this.repository.findByRole(role);
+	}
 }
